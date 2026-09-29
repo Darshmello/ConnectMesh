@@ -1,0 +1,10 @@
+const results=[
+{region:"americas",setup:"local",pr_auc:.318,recall_at_fpr:.412},{region:"americas",setup:"federated",pr_auc:.420,recall_at_fpr:.674},{region:"americas",setup:"pooled",pr_auc:.457,recall_at_fpr:.563},
+{region:"emea",setup:"local",pr_auc:.343,recall_at_fpr:.657},{region:"emea",setup:"federated",pr_auc:.452,recall_at_fpr:.453},{region:"emea",setup:"pooled",pr_auc:.485,recall_at_fpr:.490},
+{region:"apac",setup:"local",pr_auc:.191,recall_at_fpr:.601},{region:"apac",setup:"federated",pr_auc:.290,recall_at_fpr:.515},{region:"apac",setup:"pooled",pr_auc:.345,recall_at_fpr:.606},
+{region:"india",setup:"local",pr_auc:.333,recall_at_fpr:.441},{region:"india",setup:"federated",pr_auc:.419,recall_at_fpr:.493},{region:"india",setup:"pooled",pr_auc:.473,recall_at_fpr:.680},
+{region:"small_sub",setup:"local",pr_auc:.307,recall_at_fpr:.578},{region:"small_sub",setup:"federated",pr_auc:.390,recall_at_fpr:.667},{region:"small_sub",setup:"pooled",pr_auc:.439,recall_at_fpr:.425}];
+const setups=["local","federated","pooled"],labels={americas:"Americas",emea:"EMEA",apac:"APAC",india:"India",small_sub:"Small Sub"};
+function byRegion(metric){return Object.keys(labels).map(region=>{const values=Object.fromEntries(results.filter(row=>row.region===region).map(row=>[row.setup,row[metric]]));return{region,...values}})}
+function render(metric){const rows=byRegion(metric),chart=document.getElementById("chart"),body=document.querySelector("#results-table tbody");chart.innerHTML=rows.map(row=>`<div class="bank-bars"><div class="bars">${setups.map(setup=>`<div class="bar ${setup}" data-value="${row[setup].toFixed(3)}" style="height:${Math.max(8,row[setup]*100)}%"></div>`).join("")}</div><span class="bank-label">${labels[row.region]}</span></div>`).join("");body.innerHTML=rows.map(row=>`<tr><td>${labels[row.region]}</td><td>${row.local.toFixed(3)}</td><td>${row.federated.toFixed(3)}</td><td>${row.pooled.toFixed(3)}</td><td class="gain">+${(row.federated-row.local).toFixed(3)}</td></tr>`).join("")}
+document.getElementById("metric-selector").addEventListener("change",event=>render(event.target.value));render("pr_auc");
