@@ -18,21 +18,37 @@ import pandas as pd
 
 RAW_PATH = "data/raw/HI-Small_Trans.csv"
 
-# PLACEHOLDER — P1 replaces these bank-id lists with a real, deliberately
-# skewed split after inspecting df["From Bank"].value_counts() /
-# df["To Bank"].value_counts() on the real file.
+# Filled in from real HI-Small_Trans.csv analysis (df["From Bank"].value_counts()
+# and per-bank df.groupby("From Bank")["Is Laundering"].mean()):
+#   bank: txn count, laundering rate
+#   70: 449,859, 0.141%   10: 81,629, 0.063%   12: 79,754, 0.095%
+#   1: 62,211, 0.080%     15: 52,511, 0.088%   211: 30,451, 0.085%
+#   220: 52,417, 0.042%   116: 30,232, 0.076%  1665: 28,310, 0.074%
+#   3: 38,413, 0.034%     7: 31,086, 0.035%    28: 28,584, 0.091%
+#   20: 41,008, 0.163%    11: 29,676, 0.158%   22: 28,652, 0.140%
+# small_sub is deliberately smallest (~70K rows) and highest-rate (~0.161%
+# weighted) of the 5 — that's the region that should show the biggest
+# "gain from joining" once local/federated/pooled are compared.
 REGION_MAP = {
-    "americas": [],
-    "emea": [],
-    "apac": [],
-    "india": [],
-    "small_sub": [],  # keep this one deliberately small
+    "americas": [70],  # one dominant bank, ~450K txns alone
+    "emea": [10, 12],
+    "apac": [1, 15, 211],
+    "india": [220, 116, 1665, 3, 7, 28],
+    "small_sub": [20, 11],  # smallest, highest laundering rate — on purpose
 }
 
 
 def load_raw() -> pd.DataFrame:
     df = pd.read_csv(RAW_PATH)
     df = df.rename(columns={"Is Laundering": "is_laundering", "Timestamp": "timestamp"})
+    # Add lowercase alias columns matching the placeholder schema
+    # (make_placeholder_partitions.py) so src/model/flower_app's FEATURES/task.py
+    # work unchanged against either fake or real partitions. Keep the original
+    # IBM columns too (Payment Format etc.) for whoever adds real features later.
+    df["amount"] = df["Amount Paid"]
+    df["currency"] = df["Payment Currency"]
+    df["from_bank"] = df["From Bank"]
+    df["to_bank"] = df["To Bank"]
     return df.sort_values("timestamp")
 
 
