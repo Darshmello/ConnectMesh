@@ -18,7 +18,6 @@ packages = ["."]
 
 [tool.flwr.app]
 publisher = "connectmesh"
-fab-format-version = 1
 flwr-version-target = "1.30.0"
 
 [tool.flwr.app.components]
@@ -26,5 +25,32 @@ serverapp = "aml_fl.server_app:app"
 clientapp = "aml_fl.client_app:app"
 
 [tool.flwr.app.config]
-num-server-rounds = 10
-min-available-clients = 5
+# Must match NUM_ROUNDS in aml_fl/task.py — the equal-budget design depends
+# on NUM_ROUNDS * LOCAL_ITERS matching the baselines' TOTAL_ITERS.
+num-server-rounds = 20
+
+
+#######################################################################
+# CONFIGURATION MIGRATION NOTICE:
+#
+# What was previously called "federation config" for SuperLink
+# connections in pyproject.toml has been renamed and moved.
+#
+# These settings are now **SuperLink connection configuration**
+# and are defined in the Flower configuration file.
+#
+# The entries below are commented out intentionally and are kept
+# only as a migration reference.
+#
+# Docs: https://flower.ai/docs/framework/ref-flower-configuration.html
+#######################################################################
+
+# [tool.flwr.federations]
+# default = "local-deployment"
+
+# # Real separate processes (one superlink + 5 supernodes), per AGENTS.md.
+# # Simulation mode is deliberately NOT the default here: it would run all 5
+# # regions inside one process, which undercuts the demo's central claim.
+# [tool.flwr.federations.local-deployment]
+# address = "127.0.0.1:9093"
+# insecure = true

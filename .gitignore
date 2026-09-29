@@ -6,3 +6,5 @@ __pycache__/
 # real dataset — do not commit, only the placeholder partitions in data/ are tracked
 data/raw/
 *.zip
+.flower_logs/
+.flower_logs_failed_run1/
