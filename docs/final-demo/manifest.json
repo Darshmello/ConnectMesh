@@ -1,0 +1,18 @@
+{
+  "source_run": "/Users/franklynrosario/ConnectMesh-IBM-151213/results/features-20260929-151657",
+  "data_hashes": {
+    "region_americas_train.parquet": "ad86e13d0ffd0272c332c63d658e3a0449c33a433890a3968405d853278b125d",
+    "region_small_sub_test.parquet": "dec53d6fe847dee2ff2c4af425fd7995969a5b6cafab03a29b6a869143901942",
+    "region_small_sub_train.parquet": "1b945dc78a1ed38bdbdf26b3c83bcb046e388fa4f70c5e5cdf414ac2a6eec40c",
+    "region_apac_test.parquet": "3c76086e3fdd9a6012f9dd75200a1a0540827cb107ae6b65c79cbb179fa2f414",
+    "region_emea_train.parquet": "135abe2274c4ea8e5d0865eaa0f5efd57aecdbe5797c4e8bcd5dafe422431995",
+    "region_india_test.parquet": "edefc84850962bab778cc74ea86247238e2ddce1ea1612682bd85903536bd7cb",
+    "region_americas_test.parquet": "522462e0f37aded1d86fe756deed8ba805282ade5e9bab6f179043567f06c090",
+    "region_india_train.parquet": "63fed99b66c9559bca00378d06e985bb444d25663ddbc7a0ef98663268d4c107",
+    "region_apac_train.parquet": "0f850990bcb3f2d6b465c250686639bc909fb761cefdceb48e1a4ec2a513ea54",
+    "region_emea_test.parquet": "f058afb36c535c88bf55bec554eb81365f8cf287a7c6e19b6033e5c40cad4633"
+  },
+  "results_sha256": "9bf9cc324b4686de63de146f61a7f96f85babf3e80ed2941f9e5474846d62dc8",
+  "finding": "Local average precision exceeds federated in all five groups.",
+  "scope": "Exploratory synthetic-data experiment; no production or privacy guarantee."
+}
