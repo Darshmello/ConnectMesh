@@ -1,22 +1,35 @@
 """
-Model + data loading shared by client_app.py and server_app.py.
-Adapted from Flower's official quickstart-sklearn (@flwrlabs/quickstart-sklearn,
-generated fresh against our installed flwr==1.30.0 to match its current API —
-see AGENTS.md, "start from the official quickstart, API changes between
-versions").
+The model, shared by all three setups. Per AGENTS.md's fixed decisions:
+logistic regression with class weighting, identical for local, federated and
+pooled.
 
-P2: FEATURES is deliberately minimal (just amount) so this runs end to end
-today. Add more columns from the partition schema (payment format one-hot,
-hour-of-day, etc.) once the pipeline works — don't block on feature
-engineering before proving the plumbing works.
+Equal optimization budget
+-------------------------
+All three setups get the same total number of solver iterations
+(TOTAL_ITERS), so the comparison measures *data access* rather than training
+effort:
+  local    : one fit, max_iter=TOTAL_ITERS
+  pooled   : one fit, max_iter=TOTAL_ITERS
+  federated: NUM_ROUNDS rounds x LOCAL_ITERS iterations = TOTAL_ITERS
+
+Without this, federated would look artificially bad purely for being given
+less optimization, and the headline result would be an artefact of the
+config rather than a real finding.
 """
+import warnings
+
 import numpy as np
-import pandas as pd
 from flwr.common import NDArrays
+from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import LogisticRegression
 
-FEATURES = ["amount"]
-UNIQUE_LABELS = [0, 1]  # is_laundering: 0 or 1
+from aml_fl.features import feature_names, load_region_data  # noqa: F401 (re-exported)
+
+NUM_ROUNDS = 20
+LOCAL_ITERS = 5
+TOTAL_ITERS = NUM_ROUNDS * LOCAL_ITERS
+
+UNIQUE_LABELS = [0, 1]  # is_laundering
 
 
 def get_model_params(model: LogisticRegression) -> NDArrays:
@@ -32,8 +45,8 @@ def set_model_params(model: LogisticRegression, params: NDArrays) -> LogisticReg
     return model
 
 
-def set_initial_params(model: LogisticRegression, n_features: int):
-    """Params are uninitialized until model.fit() is called, but the server
+def set_initial_params(model: LogisticRegression, n_features: int) -> None:
+    """Params are uninitialized until fit() is called, but the Flower server
     asks clients for initial parameters at launch — so zero-init first."""
     model.classes_ = np.array(UNIQUE_LABELS)
     model.coef_ = np.zeros((1, n_features))
@@ -41,21 +54,24 @@ def set_initial_params(model: LogisticRegression, n_features: int):
         model.intercept_ = np.zeros((1,))
 
 
-def create_model() -> LogisticRegression:
+def create_model(max_iter: int = LOCAL_ITERS, warm_start: bool = True) -> LogisticRegression:
+    """Federated clients use the defaults (a few iterations per round, weights
+    carried across rounds). Baselines pass max_iter=TOTAL_ITERS,
+    warm_start=False for a single equivalent-budget fit."""
     model = LogisticRegression(
-        max_iter=1,  # one local epoch per federated round, same as the quickstart
-        warm_start=True,  # keep weights between rounds instead of resetting
-        class_weight="balanced",  # per AGENTS.md: "logistic regression with class weighting"
+        max_iter=max_iter,
+        warm_start=warm_start,
+        class_weight="balanced",  # AGENTS.md: laundering is ~0.1% of rows
+        solver="lbfgs",
     )
-    set_initial_params(model, n_features=len(FEATURES))
+    set_initial_params(model, n_features=len(feature_names()))
     return model
 
 
-def load_region_data(region: str):
-    """Reads data/region_<region>_{train,test}.parquet — the same interface
-    make_real_partitions.py / make_placeholder_partitions.py produce."""
-    train = pd.read_parquet(f"data/region_{region}_train.parquet")
-    test = pd.read_parquet(f"data/region_{region}_test.parquet")
-    X_train, y_train = train[FEATURES].values, train["is_laundering"].values
-    X_test, y_test = test[FEATURES].values, test["is_laundering"].values
-    return X_train, y_train, X_test, y_test
+def fit_quietly(model: LogisticRegression, X, y) -> LogisticRegression:
+    """Partial-budget fits legitimately stop before convergence — that's the
+    design, not a problem to be surfaced as a warning on every round."""
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", category=ConvergenceWarning)
+        model.fit(X, y)
+    return model

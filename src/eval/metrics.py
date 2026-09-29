@@ -1,19 +1,18 @@
 """
-Metric functions for the results table. P3: fill in the bodies; keep the
-signatures so P5's demo page doesn't need to change.
+Analysis layer (Sahan / role/eval).
+
+NOTE — touched by role/model: pr_auc and recall_at_fpr now live in
+aml_fl/metrics.py and are imported here rather than redefined. Reason: the
+local, pooled and federated runs must be scored by identical code or the
+three numbers in results.csv aren't comparable. recall_at_fpr was a
+NotImplementedError stub and the model runs couldn't write a complete
+results.csv row without it. The signatures are unchanged, so anything
+importing them from here still works. gain_table is untouched and still
+yours — the new-region generalisation test belongs here too.
 """
 import pandas as pd
-from sklearn.metrics import average_precision_score
 
-
-def pr_auc(y_true, y_score) -> float:
-    """Headline metric. Never use accuracy — laundering is ~0.1% of rows."""
-    return average_precision_score(y_true, y_score)
-
-
-def recall_at_fpr(y_true, y_score, target_fpr: float = 0.01) -> float:
-    """Recall at a fixed false-positive rate (fill in with sklearn.roc_curve)."""
-    raise NotImplementedError
+from aml_fl.metrics import pr_auc, recall_at_fpr  # noqa: F401 (re-exported)
 
 
 def gain_table(results: pd.DataFrame) -> pd.DataFrame:
@@ -28,5 +27,7 @@ def gain_table(results: pd.DataFrame) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("results/results.csv")
+    from aml_fl.features import repo_root
+
+    df = pd.read_csv(repo_root() / "results" / "results.csv")
     print(gain_table(df))
