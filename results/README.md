@@ -23,13 +23,15 @@
 - `runs/2026-09-29_federated_5bank/` — SUCCESS. 20/20 rounds, 5/5 nodes
   sampled every round, no UNAUTHENTICATED / "Task stopped" lines, 359 s.
   Paths inside the logs refer to the machine that ran it.
-- `runs/2026-09-29_failed_8gb_run1/` and `..._run2/` — FAILED, both on an
-  8 GB Mac with 6-7 GB swap in use. Run 1: emea's client died with
-  UNAUTHENTICATED after 4 rounds. Run 2 (5 nodes required, timestamped): all
-  5 registered, india's client made no server call for ~63 s, Flower's 30 s
-  task token expired, and round 1 never completed. Why the process was slow
-  is NOT proven (memory pressure fits; the same run succeeded on 16 GB).
-  Kept as evidence, not as results.
+- `runs/2026-09-29_federated_5bank/per_round_pr_auc.csv` — the per-round
+  monitoring number from the server log (mean test PR-AUC over the 5 banks,
+  weighted by test size). Not the results.csv metric; noisy, peak 0.245 at
+  round 18, 0.201 at round 20 (the model we report).
+
+Earlier attempts on an 8 GB Mac failed (a client process stalled at startup,
+Flower's 30 s task token expired, round 1 never completed; cause not proven).
+Those logs are not kept here. All numbers in this folder come from the single
+successful 16 GB run above.
 
 ## Caveats (read before quoting numbers)
 - One run, one seed. Regions have only 51-84 training positives, so small
