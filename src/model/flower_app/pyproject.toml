@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "aml-fl"
 version = "0.1.0"
 description = "Federated AML detection — 5 regions, logistic regression, Flower"
+license = { file = "LICENSE" }
 dependencies = [
     "flwr>=1.28.0",
     "scikit-learn>=1.6.1",

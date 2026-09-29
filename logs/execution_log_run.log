@@ -1,0 +1,136 @@
+🎊 Successfully started run 10471090925863560007
+[92mINFO [0m:      Starting logstream for run_id `10471090925863560007`
+[92mINFO [0m:      Start `flwr-serverapp` process
+Successfully installed aml-fl to /root/.flwr/apps/connectmesh.aml-fl.0.1.0.20246522.
+[92mINFO [0m:      Starting CollectingFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 10
+[92mINFO [0m:      	├── ArrayRecord (0.00 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): (empty!)
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (2)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250724, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.0013604664882236367, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.43115485257164}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.43115485257164}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.0013604664882236367, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250724, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128455, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.43115485257164}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128455, 'n_pos': 80.4511846740337}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250724, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.0013604664882236371, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.4311548525716}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/10]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'region_id': 1.3140964470250727, 'n_pos': 262.43115485257164}
+[92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.001360466488223637, 'region_id': 1.3141051006128457, 'n_pos': 80.45118467403368}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 211.98s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.000 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  2: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  3: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  4: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  5: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  6: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  7: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  8: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  9: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  10: {'n_pos': '2.6243e+02', 'region_id': '1.3141e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{ 1: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  2: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  3: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  4: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  5: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  6: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  7: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  8: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  9: {'n_pos': '8.0451e+01', 'pr_auc': '1.3605e-03', 'region_id': '1.3141e+00'},
+[92mINFO [0m:      	  10: { 'n_pos': '8.0451e+01',
+[92mINFO [0m:      	        'pr_auc': '1.3605e-03',
+[92mINFO [0m:      	        'region_id': '1.3141e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      
+Wrote 5 federated results rows to results/results.csv

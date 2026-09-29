@@ -15,6 +15,7 @@ import pandas as pd
 from flwr.common import NDArrays
 from sklearn.linear_model import LogisticRegression
 
+REGIONS = ["americas", "emea", "apac", "india", "small_sub"]  # region_id = index
 FEATURES = ["amount"]
 UNIQUE_LABELS = [0, 1]  # is_laundering: 0 or 1
 

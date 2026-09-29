@@ -1,0 +1,6 @@
+region,setup,pr_auc,recall_at_fpr,n_train,n_pos
+americas,federated,0.0015785797216064617,,359887,511
+india,federated,0.0008074049016852325,,167233,69
+small_sub,federated,0.0028963777436959988,,56547,51
+emea,federated,0.0009801813698254993,,129106,84
+apac,federated,0.0011558910925146143,,116138,72

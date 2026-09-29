@@ -16,7 +16,7 @@ from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from flwr.clientapp import ClientApp
 from sklearn.metrics import average_precision_score
 
-from aml_fl.task import create_model, get_model_params, load_region_data, set_model_params
+from aml_fl.task import REGIONS, create_model, get_model_params, load_region_data, set_model_params
 
 app = ClientApp()
 
@@ -34,7 +34,11 @@ def train(msg: Message, context: Context):
         warnings.simplefilter("ignore")
         model.fit(X_train, y_train)
 
-    metrics = {"num-examples": len(X_train), "region": region}
+    metrics = {
+        "num-examples": len(X_train),
+        "region_id": REGIONS.index(region),
+        "n_pos": int(y_train.sum()),
+    }
     content = RecordDict(
         {"arrays": ArrayRecord(get_model_params(model)), "metrics": MetricRecord(metrics)}
     )
@@ -52,6 +56,11 @@ def evaluate(msg: Message, context: Context):
     y_score = model.predict_proba(X_test)[:, 1]
     pr_auc = average_precision_score(y_test, y_score)  # the headline metric, per AGENTS.md
 
-    metrics = {"num-examples": len(X_test), "pr_auc": pr_auc, "region": region}
+    metrics = {
+        "num-examples": len(X_test),
+        "pr_auc": float(pr_auc),
+        "region_id": REGIONS.index(region),
+        "n_pos": int(y_test.sum()),
+    }
     content = RecordDict({"metrics": MetricRecord(metrics)})
     return Message(content=content, reply_to=msg)
