@@ -10,6 +10,12 @@ import streamlit as st
 
 st.set_page_config(page_title="Federated AML Demo", layout="wide")
 st.title("Federated AML — local vs. federated vs. pooled")
+st.warning(
+    "UNVERIFIED RESULTS — the repository currently ships placeholder metrics. "
+    "Do not present these numbers as measured performance. Before presenting, "
+    "replace them with experiment outputs and verify their run provenance; "
+    "then update this notice to identify that verified run."
+)
 st.caption(
     "Synthetic IBM HI-Small dataset. Regions are fictional labels grouped by "
     "bank ID. This is a demonstration, not evidence of real-world performance."
