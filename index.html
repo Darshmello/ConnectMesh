@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConnectMesh Federated AML Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ConnectMesh</p>
+          <h1>Federated AML results</h1>
+          <p class="subtitle">Five fictional banks train a shared laundering-detection model without moving raw transaction rows between processes.</p>
+        </div>
+        <span class="pill">Synthetic IBM HI-Small data</span>
+      </header>
+
+      <section class="metrics" aria-label="Experiment summary">
+        <article><span>Participants</span><strong>5 banks</strong><small>Americas, EMEA, APAC, India, Small Sub</small></article>
+        <article><span>Model</span><strong>Logistic regression</strong><small>Class weighting enabled</small></article>
+        <article><span>Headline metric</span><strong>PR-AUC</strong><small>Accuracy is intentionally omitted</small></article>
+        <article><span>Split</span><strong>Time based</strong><small>Train precedes test for every bank</small></article>
+      </section>
+
+      <section class="panel flow-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Data flow</p><h2>What stays local and what Flower exchanges</h2></div><span class="local-badge">No raw rows cross process boundaries</span></div>
+        <div class="data-flow">
+          <div class="flow-box local"><span>Each bank process</span><strong>region_&lt;name&gt;_train.parquet<br />region_&lt;name&gt;_test.parquet</strong><small>Local features and is_laundering label</small></div>
+          <div class="arrow">→<small>model arrays + num-examples</small></div>
+          <div class="flow-box grid"><span>Flower FedAvg server</span><strong>Aggregate model weights</strong><small>One server, five separate client processes</small></div>
+          <div class="arrow">→<small>global model arrays</small></div>
+          <div class="flow-box local"><span>Each bank process</span><strong>Local evaluation</strong><small>PR-AUC and recall at fixed FPR</small></div>
+        </div>
+        <p class="footnote">The pooled setup is an offline synthetic-data benchmark for comparison. It is not the federated data flow and is not a production deployment.</p>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Partition contract</p><h2>Local transaction fields</h2></div><span class="local-badge">Never shared as rows</span></div>
+          <table>
+            <thead><tr><th>Field</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>timestamp</code></td><td>Time-ordered train/test split</td></tr>
+              <tr><td><code>from_bank</code>, <code>to_bank</code></td><td>Bank assignment and future features</td></tr>
+              <tr><td><code>amount</code></td><td>Current minimal model feature</td></tr>
+              <tr><td><code>currency</code></td><td>Partition schema field</td></tr>
+              <tr><td><code>is_laundering</code></td><td>Binary local training label</td></tr>
+            </tbody>
+          </table>
+          <p class="footnote">The current Flower task uses <code>amount</code> as its minimal feature; the remaining schema fields stay available for later feature engineering.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Flower message contract</p><h2>Permitted exchange elements</h2></div><span class="verified-badge">FedAvg</span></div>
+          <table>
+            <thead><tr><th>Element</th><th>Direction</th></tr></thead>
+            <tbody>
+              <tr><td>Model coefficient and intercept arrays</td><td>Client ↔ server</td></tr>
+              <tr><td><code>num-examples</code> metric</td><td>Client → server</td></tr>
+              <tr><td><code>region</code> metric</td><td>Client → server</td></tr>
+              <tr><td><code>pr_auc</code> evaluation metric</td><td>Client → server</td></tr>
+              <tr><td>Transaction rows, account IDs, raw labels</td><td><span class="blocked">Blocked</span></td></tr>
+            </tbody>
+          </table>
+          <p class="footnote">Federated learning reduces raw-data-transfer exposure, but it is not privacy by itself: individual model updates can leak information and participants can poison training.</p>
+        </article>
+      </section>
+
+      <section class="panel results-panel">
+        <div class="panel-heading results-heading"><div><p class="eyebrow">results results csv</p><h2>Local, federated, and pooled comparison</h2></div><label>View <select id="metric-selector"><option value="pr_auc">PR-AUC</option><option value="recall_at_fpr">Recall at fixed FPR</option></select></label></div>
+        <div class="chart-and-table">
+          <div><div id="chart" class="chart" aria-label="Results grouped bar chart"></div><div class="legend"><span class="local">Local</span><span class="federated">Federated</span><span class="pooled">Pooled</span></div></div>
+          <div class="table-wrap"><table id="results-table"><thead><tr><th>Bank</th><th>Local</th><th>Federated</th><th>Pooled</th><th>Gain from joining</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <p class="footnote">Displayed numbers are the repository’s placeholder results. Replace them only with an actual run; label all results as synthetic and regions as fictional.</p>
+      </section>
+
+      <section class="panel limits-panel">
+        <div><p class="eyebrow">Demo limits</p><h2>Claims the demo does not make</h2></div>
+        <ul><li>It does not detect real laundering or establish regulatory compliance.</li><li>It does not use graph learning, cross-bank chain detection, LLMs, or a production deployment.</li><li>It does not claim federated learning is private by itself or claim novel methodology.</li></ul>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
