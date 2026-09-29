@@ -15,6 +15,11 @@ Run from the repo root:
 """
 import numpy as np
 
+import sys
+from pathlib import Path
+
+# Make `aml_fl` importable from a plain clone (no `pip install -e` needed).
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src" / "model" / "flower_app"))
 from aml_fl.features import REGIONS, load_region_data
 from aml_fl.metrics import pr_auc, recall_at_fpr
 from aml_fl.results_io import write_setup_rows

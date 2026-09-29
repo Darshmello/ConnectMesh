@@ -5,6 +5,8 @@ emea, india, small_sub) for 20 rounds on this laptop. Real data is already in
 `data/region_*_{train,test}.parquet` (committed). You do NOT need the 454 MB
 raw CSV or any Kaggle login.
 
+Status: one successful run exists (see `results/README.md`). Use this runbook to reproduce it or to run it on a new machine.
+
 Why we are asking you: on Darsh's 8 GB Mac a client process hung ~60 s at
 startup (swap was 7 GB), Flower's 30 s task-token expired, and the run died.
 16 GB should avoid it. **Whether it does is itself the result we need.**

@@ -17,6 +17,11 @@ from pathlib import Path
 
 import pandas as pd
 
+import sys
+from pathlib import Path
+
+# Allow `python .../aml_fl/results_io.py` from a plain clone.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from aml_fl.features import REGIONS, repo_root
 
 COLUMNS = ["region", "setup", "pr_auc", "recall_at_fpr", "n_train", "n_pos"]

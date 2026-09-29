@@ -1,0 +1,19 @@
+14:49:38 [92mINFO [0m:      Starting Flower SuperNode
+14:49:38 [93mWARNING [0m:   Option `--insecure` was set. Starting insecure HTTP channel to 127.0.0.1:9092.
+14:49:38 [92mINFO [0m:      Flower Deployment Runtime: Starting ClientAppIo API on 127.0.0.1:9096
+14:49:38 I0929 14:49:38.502787 12161536 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+14:49:38 I0929 14:49:38.519139 12161611 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+14:49:38 I0929 14:49:38.519538 12161765 ev_poll_posix.cc:587] FD from fork parent still in poll list: fd(6, generation: 1)
+14:49:38 I0929 14:49:38.576095 12161611 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+14:49:38 [92mINFO [0m:      SuperNode ID: 12420761571247958109
+14:49:39 [92mINFO [0m:      Starting Flower SuperExec
+14:49:44 [92mINFO [0m:      
+14:49:44 [92mINFO [0m:      [RUN 8368413846792081707]
+14:49:44 [92mINFO [0m:      Receiving: train message (ID: c4f08e8462b626a26b4eb4dcbb67d944cb01aa82f5d1d4f0d90a0136f0e863ed)
+14:49:44 [92mINFO [0m:      Received successfully
+14:49:45 [92mINFO [0m:      Start `flwr-clientapp` process
+14:49:48 [92mINFO [0m:      
+14:49:48 [92mINFO [0m:      
+14:49:48 [92mINFO [0m:      [RUN 8368413846792081707]
+14:49:48 [92mINFO [0m:      Sending: train message (ID: 964706dbf3385935c8908d25e13db763b1fe14ec773fe5aae81579061af65665)
+14:49:48 [92mINFO [0m:      Sent successfully

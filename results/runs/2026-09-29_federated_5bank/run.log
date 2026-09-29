@@ -1,0 +1,238 @@
+15:19:17 Flower App configuration warnings in '/Users/sahdeb/Proj/Flower/ConnectMesh/src/model/flower_app/pyproject.toml':
+15:19:17 - Recommended property "license" missing in [project]
+15:19:17 🎊 Successfully started run 17256312238335460168
+15:19:17 [92mINFO [0m:      Starting logstream for run_id `17256312238335460168`
+15:19:19 [92mINFO [0m:      Start `flwr-serverapp` process
+15:19:22 Successfully installed aml-fl to /Users/sahdeb/.flwr/apps/connectmesh.aml-fl.0.1.0.b2f2ad9c.
+15:20:10 [92mINFO [0m:      Starting FedAvg strategy:
+15:20:10 [92mINFO [0m:      	├── Number of rounds: 20
+15:20:10 [92mINFO [0m:      	├── ArrayRecord (0.00 MB)
+15:20:10 [92mINFO [0m:      	├── ConfigRecord (train): (empty!)
+15:20:10 [92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+15:20:10 [92mINFO [0m:      	├──> Sampling:
+15:20:10 [92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 1.00)
+15:20:10 [92mINFO [0m:      	│	├──Minimum nodes: train (5) | evaluate (5)
+15:20:10 [92mINFO [0m:      	│	└──Minimum available nodes: 5
+15:20:10 [92mINFO [0m:      	└──> Keys in records:
+15:20:10 [92mINFO [0m:      		├── Weighted by: 'num-examples'
+15:20:10 [92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+15:20:10 [92mINFO [0m:      		└── ConfigRecord key: 'config'
+15:20:10 [92mINFO [0m:      
+15:20:10 [92mINFO [0m:      
+15:20:10 [92mINFO [0m:      [ROUND 1/20]
+15:20:10 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:20:25 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:20:25 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:20:25 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:20:34 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:20:34 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.03271076147825456}
+15:20:34 [92mINFO [0m:      
+15:20:34 [92mINFO [0m:      [ROUND 2/20]
+15:20:34 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:20:43 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:20:43 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:20:43 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:20:52 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:20:52 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.047725243261831404}
+15:20:52 [92mINFO [0m:      
+15:20:52 [92mINFO [0m:      [ROUND 3/20]
+15:20:52 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:21:01 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:21:02 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:21:02 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:21:10 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:21:10 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.06762502884063529}
+15:21:10 [92mINFO [0m:      
+15:21:10 [92mINFO [0m:      [ROUND 4/20]
+15:21:10 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:21:19 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:21:19 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:21:19 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:21:28 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:21:28 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.1008598645482684}
+15:21:28 [92mINFO [0m:      
+15:21:28 [92mINFO [0m:      [ROUND 5/20]
+15:21:28 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:21:34 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:21:34 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:21:34 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:21:43 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:21:43 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.1393702675063625}
+15:21:43 [92mINFO [0m:      
+15:21:43 [92mINFO [0m:      [ROUND 6/20]
+15:21:43 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:21:52 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:21:52 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:21:52 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:21:58 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:21:58 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.12973934225373754}
+15:21:59 [92mINFO [0m:      
+15:21:59 [92mINFO [0m:      [ROUND 7/20]
+15:21:59 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:22:08 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:22:08 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:22:08 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:22:17 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:22:17 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.13064816234047352}
+15:22:17 [92mINFO [0m:      
+15:22:17 [92mINFO [0m:      [ROUND 8/20]
+15:22:17 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:22:26 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:22:26 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:22:26 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:22:35 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:22:35 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.12133190012950784}
+15:22:35 [92mINFO [0m:      
+15:22:35 [92mINFO [0m:      [ROUND 9/20]
+15:22:35 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:22:44 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:22:44 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:22:44 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:22:52 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:22:52 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.11060426661274002}
+15:22:52 [92mINFO [0m:      
+15:22:52 [92mINFO [0m:      [ROUND 10/20]
+15:22:52 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:23:02 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:23:02 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:23:02 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:23:11 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:23:11 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.17487180524549753}
+15:23:11 [92mINFO [0m:      
+15:23:11 [92mINFO [0m:      [ROUND 11/20]
+15:23:11 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:23:17 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:23:17 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:23:17 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:23:26 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:23:26 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.19542278315581282}
+15:23:26 [92mINFO [0m:      
+15:23:26 [92mINFO [0m:      [ROUND 12/20]
+15:23:26 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:23:35 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:23:35 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:23:35 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:23:44 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:23:44 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.2000679356266878}
+15:23:44 [92mINFO [0m:      
+15:23:44 [92mINFO [0m:      [ROUND 13/20]
+15:23:44 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:23:53 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:23:53 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:23:53 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:24:02 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:24:02 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.19659134628267544}
+15:24:02 [92mINFO [0m:      
+15:24:02 [92mINFO [0m:      [ROUND 14/20]
+15:24:02 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:24:11 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:24:11 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:24:11 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:24:20 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:24:20 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.17964719779624178}
+15:24:20 [92mINFO [0m:      
+15:24:20 [92mINFO [0m:      [ROUND 15/20]
+15:24:20 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:24:29 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:24:29 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:24:29 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:24:38 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:24:38 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.1533907551262943}
+15:24:38 [92mINFO [0m:      
+15:24:38 [92mINFO [0m:      [ROUND 16/20]
+15:24:38 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:24:47 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:24:47 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:24:47 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:24:56 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:24:57 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.13034471120122088}
+15:24:57 [92mINFO [0m:      
+15:24:57 [92mINFO [0m:      [ROUND 17/20]
+15:24:57 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:25:06 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:25:06 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:25:06 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:25:15 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:25:15 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.13183404594756712}
+15:25:15 [92mINFO [0m:      
+15:25:15 [92mINFO [0m:      [ROUND 18/20]
+15:25:15 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:25:24 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:25:24 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.43115485257164}
+15:25:24 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:25:32 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:25:32 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.24503094095934497}
+15:25:32 [92mINFO [0m:      
+15:25:32 [92mINFO [0m:      [ROUND 19/20]
+15:25:32 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:25:42 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:25:42 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:25:42 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:25:50 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:25:50 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.2208965631025122}
+15:25:50 [92mINFO [0m:      
+15:25:50 [92mINFO [0m:      [ROUND 20/20]
+15:25:50 [92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+15:26:00 [92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+15:26:00 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'n_pos': 262.4311548525716}
+15:26:00 [92mINFO [0m:      configure_evaluate: Sampled 5 nodes (out of 5)
+15:26:09 [92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+15:26:09 [92mINFO [0m:      	└──> Aggregated MetricRecord: {'pr_auc': 0.2008462842828028}
+15:26:09 [92mINFO [0m:      
+15:26:09 [92mINFO [0m:      Strategy execution finished in 358.87s
+15:26:09 [92mINFO [0m:      
+15:26:09 [92mINFO [0m:      Final results:
+15:26:09 [92mINFO [0m:      
+15:26:09 [92mINFO [0m:      	Global Arrays:
+15:26:09 [92mINFO [0m:      		ArrayRecord (0.000 MB)
+15:26:09 [92mINFO [0m:      	
+15:26:09 [92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+15:26:09 [92mINFO [0m:      	{ 1: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  2: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  3: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  4: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  5: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  6: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  7: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  8: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  9: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  10: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  11: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  12: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  13: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  14: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  15: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  16: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  17: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  18: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  19: {'n_pos': '2.6243e+02'},
+15:26:09 [92mINFO [0m:      	  20: {'n_pos': '2.6243e+02'}}
+15:26:09 [92mINFO [0m:      	
+15:26:09 [92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+15:26:09 [92mINFO [0m:      	{ 1: {'pr_auc': '3.2711e-02'},
+15:26:09 [92mINFO [0m:      	  2: {'pr_auc': '4.7725e-02'},
+15:26:09 [92mINFO [0m:      	  3: {'pr_auc': '6.7625e-02'},
+15:26:09 [92mINFO [0m:      	  4: {'pr_auc': '1.0086e-01'},
+15:26:09 [92mINFO [0m:      	  5: {'pr_auc': '1.3937e-01'},
+15:26:09 [92mINFO [0m:      	  6: {'pr_auc': '1.2974e-01'},
+15:26:09 [92mINFO [0m:      	  7: {'pr_auc': '1.3065e-01'},
+15:26:09 [92mINFO [0m:      	  8: {'pr_auc': '1.2133e-01'},
+15:26:09 [92mINFO [0m:      	  9: {'pr_auc': '1.1060e-01'},
+15:26:09 [92mINFO [0m:      	  10: {'pr_auc': '1.7487e-01'},
+15:26:09 [92mINFO [0m:      	  11: {'pr_auc': '1.9542e-01'},
+15:26:09 [92mINFO [0m:      	  12: {'pr_auc': '2.0007e-01'},
+15:26:09 [92mINFO [0m:      	  13: {'pr_auc': '1.9659e-01'},
+15:26:09 [92mINFO [0m:      	  14: {'pr_auc': '1.7965e-01'},
+15:26:09 [92mINFO [0m:      	  15: {'pr_auc': '1.5339e-01'},
+15:26:09 [92mINFO [0m:      	  16: {'pr_auc': '1.3034e-01'},
+15:26:09 [92mINFO [0m:      	  17: {'pr_auc': '1.3183e-01'},
+15:26:09 [92mINFO [0m:      	  18: {'pr_auc': '2.4503e-01'},
+15:26:09 [92mINFO [0m:      	  19: {'pr_auc': '2.2090e-01'},
+15:26:09 [92mINFO [0m:      	  20: {'pr_auc': '2.0085e-01'}}
+15:26:09 [92mINFO [0m:      	
+15:26:09 [92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+15:26:09 [92mINFO [0m:      	{}
+15:26:09 [92mINFO [0m:      
+15:26:09 
+15:26:09 Saved federated weights to /Users/sahdeb/Proj/Flower/ConnectMesh/results/federated_model.npz
+15:26:09 Now run:  .venv/bin/python src/model/evaluate_federated.py

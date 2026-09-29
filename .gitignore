@@ -7,5 +7,4 @@ __pycache__/
 data/raw/
 *.zip
 .flower_logs/
-results/federated_model.npz
 .flower_logs_failed_run1/

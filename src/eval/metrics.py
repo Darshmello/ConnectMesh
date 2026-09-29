@@ -10,6 +10,11 @@ results.csv row without it. The signatures are unchanged, so anything
 importing them from here still works. gain_table is untouched and still
 yours — the new-region generalisation test belongs here too.
 """
+import sys
+from pathlib import Path
+
+# Make `aml_fl` importable from a plain clone (no `pip install -e` needed).
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src" / "model" / "flower_app"))
 import pandas as pd
 
 from aml_fl.metrics import pr_auc, recall_at_fpr  # noqa: F401 (re-exported)
