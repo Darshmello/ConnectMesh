@@ -58,3 +58,30 @@ place to agree on details, so all 5 tracks can run in parallel unattended:
 
 If all 8 are done before lunch, every role can work heads-down and
 independently afterward — nobody blocks on someone else's laptop.
+
+## Evaluation demo: local decision and secure learning
+
+The evaluation UI presents five fictional banks—Americas, EMEA, APAC, India,
+and Small Sub—training a class-weighted logistic-regression model. It reports
+PR-AUC as the headline metric and recall at a fixed false-positive rate; it
+does not report accuracy.
+
+### Data flow
+
+1. Each bank process reads its own time-split
+   `region_<name>_{train,test}.parquet` partitions and keeps local features
+   and the `is_laundering` label in-process.
+2. A Flower FedAvg server receives only model coefficient/intercept arrays and
+   aggregate metrics such as `num-examples`.
+3. The global model returns to each bank process for local PR-AUC and
+   fixed-FPR-recall evaluation.
+
+Raw transaction rows, account identifiers, and raw labels are not exchanged.
+The partition fields are `timestamp`, `from_bank`, `to_bank`, `amount`,
+`currency`, and `is_laundering`.
+
+The demo compares local-only, federated, and pooled **synthetic-data**
+benchmarks. Pooled training is an offline comparison, not part of the
+federated production flow. Federated learning reduces raw-data-transfer
+exposure but is not privacy by itself: model updates can leak information and
+participants can poison training.
