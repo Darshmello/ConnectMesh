@@ -15,8 +15,12 @@ import pandas as pd
 from flwr.common import NDArrays
 from sklearn.linear_model import LogisticRegression
 
-FEATURES = ["amount"]
+from aml_fl.features import FEATURES, make_features
+
 UNIQUE_LABELS = [0, 1]  # is_laundering: 0 or 1
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 
 def get_model_params(model: LogisticRegression) -> NDArrays:
@@ -54,8 +58,12 @@ def create_model() -> LogisticRegression:
 def load_region_data(region: str):
     """Reads data/region_<region>_{train,test}.parquet — the same interface
     make_real_partitions.py / make_placeholder_partitions.py produce."""
-    train = pd.read_parquet(f"data/region_{region}_train.parquet")
-    test = pd.read_parquet(f"data/region_{region}_test.parquet")
-    X_train, y_train = train[FEATURES].values, train["is_laundering"].values
-    X_test, y_test = test[FEATURES].values, test["is_laundering"].values
+    data_dir = REPO_ROOT / "data"
+    train = pd.read_parquet(data_dir / f"region_{region}_train.parquet")
+    test = pd.read_parquet(data_dir / f"region_{region}_test.parquet")
+    if "is_laundering" not in train or "is_laundering" not in test:
+        raise ValueError("both partition files must include is_laundering")
+
+    X_train, y_train = make_features(train), train["is_laundering"].astype(int).values
+    X_test, y_test = make_features(test), test["is_laundering"].astype(int).values
     return X_train, y_train, X_test, y_test

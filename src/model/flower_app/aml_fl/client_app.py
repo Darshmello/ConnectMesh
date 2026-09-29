@@ -11,12 +11,21 @@ the flower-supernode commands in this directory's README.md); this file
 never hardcodes which region it is.
 """
 import warnings
+import sys
+from pathlib import Path
 
 from flwr.app import ArrayRecord, Context, Message, MetricRecord, RecordDict
 from flwr.clientapp import ClientApp
-from sklearn.metrics import average_precision_score
+
+# The evaluation module remains the shared source of truth for baseline and
+# federated metrics. The app is launched from its own package directory, so
+# add the repository's src directory explicitly.
+REPO_SRC = Path(__file__).resolve().parents[3]
+if str(REPO_SRC) not in sys.path:
+    sys.path.insert(0, str(REPO_SRC))
 
 from aml_fl.task import create_model, get_model_params, load_region_data, set_model_params
+from eval.metrics import pr_auc, recall_at_fpr
 
 app = ClientApp()
 
@@ -48,10 +57,18 @@ def evaluate(msg: Message, context: Context):
     model = create_model()
     set_model_params(model, msg.content["arrays"].to_numpy_ndarrays())
 
-    _, _, X_test, y_test = load_region_data(region)
+    X_train, y_train, X_test, y_test = load_region_data(region)
     y_score = model.predict_proba(X_test)[:, 1]
-    pr_auc = average_precision_score(y_test, y_score)  # the headline metric, per AGENTS.md
+    # Only aggregate statistics leave this process. The test rows and labels
+    # remain in this client process.
+    metrics = {
+        "num-examples": len(X_test),
+        "pr_auc": pr_auc(y_test, y_score),
+        "recall_at_fpr": recall_at_fpr(y_test, y_score),
+        "n_train": len(X_train),
+        "n_pos": int(y_train.sum()),
+        "region": region,
+    }
 
-    metrics = {"num-examples": len(X_test), "pr_auc": pr_auc, "region": region}
     content = RecordDict({"metrics": MetricRecord(metrics)})
     return Message(content=content, reply_to=msg)

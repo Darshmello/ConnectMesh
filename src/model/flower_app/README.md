@@ -46,18 +46,15 @@ see the [Deployment Engine
 guide](https://flower.ai/docs/framework/how-to-run-flower-with-deployment-engine.html)
 if it's not already scaffolded here.)
 
-Results land in `results/results.csv` with `setup=federated`, one row per
-region, appended by `server_app.py`'s `main()`.
+## Evaluation output
 
-## What's still a TODO here (P2/P3, not blocking the plumbing)
+Each client evaluates the final global model against its own local test
+partition and returns only aggregate metrics: PR-AUC, recall at 1% false
+positive rate, training-row count, positive-label count, and its region name.
+The server replaces `setup=federated` rows in `results/results.csv`; it
+does not read a partition or receive transaction rows.
 
-- `recall_at_fpr` and `n_pos` columns are written empty — wire up
-  `src/eval/metrics.py`'s `recall_at_fpr()` once implemented, and thread
-  `n_train`/`n_pos` counts through from each client's `train()` metrics.
-- `FEATURES = ["amount"]` in `task.py` is deliberately minimal so the
-  pipeline runs end to end today — add real features once real data exists.
-- `result.history` shape in `server_app.py` is written from the quickstart's
-  general pattern but **not run end-to-end against real 5-process
-  deployment yet** — the first person to actually run this for real should
-  expect to fix the exact attribute/shape it reads from Flower's result
-  object for this version, and should not treat this file as tested.
+`aml_fl/features.py` defines the shared three-column, non-identifying feature
+matrix used by local, pooled, and federated runs. This avoids bank-local
+one-hot columns with incompatible parameter shapes. The first real
+five-process run still needs to be performed before results are presented.
