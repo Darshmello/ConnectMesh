@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aml-fl"
+version = "0.1.0"
+description = "Federated AML detection — 5 regions, logistic regression, Flower"
+dependencies = [
+    "flwr>=1.28.0",
+    "scikit-learn>=1.6.1",
+    "pandas",
+    "pyarrow",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "connectmesh"
+fab-format-version = 1
+flwr-version-target = "1.30.0"
+
+[tool.flwr.app.components]
+serverapp = "aml_fl.server_app:app"
+clientapp = "aml_fl.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 10
+min-available-clients = 5

@@ -8,6 +8,15 @@ Schema (must match what P1 produces from the real IBM HI-Small dataset):
 Columns: timestamp, from_bank, to_bank, amount, currency, is_laundering (0/1)
 
 Run: .venv/bin/python src/data/make_placeholder_partitions.py
+
+--- P1: replacing this with the real dataset ---
+Download HI-Small_Trans.csv from
+https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml
+(needs a Kaggle account) and place it at data/raw/HI-Small_Trans.csv
+(gitignored — never commit it). Then run:
+  .venv/bin/python src/data/make_real_partitions.py
+which reads it, applies REGION_MAP below, and writes the same
+data/region_<name>_{train,test}.parquet files this script fakes.
 """
 import numpy as np
 import pandas as pd

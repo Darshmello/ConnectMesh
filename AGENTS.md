@@ -32,6 +32,21 @@ Roles to be assigned (see `PLAN.md`): Data, Model + Flower, Evaluation, Research
 
 Update this table once the split is agreed. Do not put personal emails in this file if the repo is public.
 
+### Quickstart for a teammate on their own laptop
+1. `git clone https://github.com/Darshmello/ConnectMesh.git && cd ConnectMesh`
+2. `git checkout role/<yours>` — data, model, eval, pitch, or demo.
+3. `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
+4. Read this whole file, then `PLAN.md`, then look at the `src/<your-role>/`
+   directory — there's already a runnable placeholder in it.
+5. Work independently and push to your own branch. You do **not** need
+   anyone else's laptop, and nobody needs yours — every branch already has
+   the fake `data/region_*.parquet` and `results/results.csv`, so you can
+   run and test your piece right now, before real data or real model runs
+   exist. The one exception is the final integration run (real Flower
+   server + 5 client processes together) — that happens once, near the
+   end, on whichever single laptop the team picks then, not during
+   individual work.
+
 ### How to behave while roles are undecided
 - Do not assume who owns a task or who will read your output. Address whoever is prompting you.
 - If a task touches another role's area (for example, changing the data partitions while working on the model), say so and keep the change small.
