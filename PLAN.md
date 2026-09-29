@@ -23,14 +23,18 @@ Show that one multinational bank's regional models detect laundering better when
 - Split train/test **by time**, not randomly.
 - Metrics: PR-AUC (headline), recall at fixed false-alarm rate, per-region gain over local. Never accuracy.
 
-## Roles (5 people)
-| # | Role | Owns |
-|---|------|------|
-| 1 | Data lead | Load data, verify columns, time split, group banks into 5 regions (different sizes and laundering rates), save partitions |
-| 2 | Model + Flower lead | Baseline model, class weighting, local / pooled runs, Flower simulation, saves `results.csv` |
-| 3 | Evaluation lead | Metrics code, gain table, new-region test, privacy-noise run, charts |
-| 4 | Research + pitch lead | Problem doc, laws slide, competitor slide (Swift, Consilient, Aurora, Banking Circle), judge Q&A, architecture diagram |
-| 5 | Demo lead | Streamlit page or slides that display results, backup screenshots, demo script |
+## Roles (assigned)
+
+Branch names below are from `CONTRIBUTING.md` — branch from `main`, push early and
+often, don't touch another role's interface files without saying so.
+
+| # | Role | Person | Branch | Concrete SWE tasks |
+|---|------|--------|--------|---------------------|
+| 1 | Data lead | **Musa** | `role/data` | Download `HI-Small_Trans.csv` (see `src/data/make_real_partitions.py` docstring for the link — needs a Kaggle account); fill in the real `REGION_MAP` (bank IDs → 5 regions) in that file, deliberately skewed in size/rate per the risk section below; run it and confirm `data/region_*.parquet` looks right (row counts, laundering rate per region, no NaNs); pick which region gets held out for the new-region test. |
+| 2 | Model + backend lead | **Darsh** | `role/model` | Own `src/model/flower_app/` end to end. Add real features to `FEATURES` in `aml_fl/task.py` (currently just `amount` — add payment format, currency, sender/receiver transaction frequency); write the local-only and pooled baseline scripts (plain sklearn, no Flower — these don't exist yet, only the federated path does); fix the two TODOs in `server_app.py` (`n_train`/`n_pos` not threaded through, `recall_at_fpr` not wired up); run the real 5-process Flower deployment (`src/model/flower_app/README.md` has the exact commands) and replace the fake `results.csv` with real output. |
+| 2b | Flower + frontend | **Adam Franklyn** | `role/model` (Flower ops) + `role/demo` (frontend) | Flower side: write a script/Makefile that launches the server + 5 client processes in one command instead of 7 manual terminals (biggest live-demo risk right now is someone fat-fingering a port). Frontend side: extend `src/demo/app.py` — region selector, the "why federated" narrative text pulled from `docs/pitch/problem.md`, and make sure it survives `results.csv` going from fake to real numbers with zero code changes. |
+| 3 | Evaluation | **Sahan** (backend) | `role/eval` | This role has no separate owner yet, so it's the natural fit for a second backend person: implement `recall_at_fpr()` in `src/eval/metrics.py` (currently `raise NotImplementedError`); build the new-region generalization test (train on 4 regions, evaluate on Musa's held-out one); wire `gain_table()`'s output into whatever chart P5/Adam's demo page renders. **Flag this explicitly to Sahan — I'm inferring this from "backend" being unclaimed elsewhere, not from anything they said themselves.** |
+| 4 | Research + pitch | **unassigned** | `role/pitch` | Nobody is on this yet. `docs/pitch/problem.md`, `laws.md`, `competitors.md` are all fill-in-the-blank skeletons with nobody filling them, and there's no Q&A prep or architecture diagram owner. This is a real gap, not a small one — it's the entire narrative half of the pitch. Needs a 5th person or someone above giving up bandwidth once their build tasks are done. |
 
 ## Interfaces (agree in the first 15 minutes)
 - Partitions: `data/region_<name>_train.parquet` and `..._test.parquet`, same columns, label column `is_laundering`.

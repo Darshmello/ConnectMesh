@@ -11,13 +11,15 @@ instructions if you're using an AI agent to help build this. See
 
 ## Roles
 
-| # | Role | Owns |
-|---|------|------|
-| 1 | Data lead | Partitions, time split, region assignment |
-| 2 | Model + Flower lead | Baseline model, local/pooled/federated runs, `results.csv` |
-| 3 | Evaluation lead | Metrics, gain table, new-region test, charts |
-| 4 | Research + pitch lead | Problem doc, laws slide, competitor slide, Q&A prep |
-| 5 | Demo lead | Streamlit page/slides, backup screenshots, demo script |
+| # | Role | Person | Owns |
+|---|------|--------|------|
+| 1 | Data lead | Musa | Download IBM HI-Small ([Kaggle link](https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml)), region assignment, partitions |
+| 2 | Model + backend lead | Darsh | Baseline model, local/pooled/federated runs, `results.csv` |
+| 2b | Flower ops + frontend | Adam Franklyn | Flower deployment automation, `src/demo/app.py` |
+| 3 | Evaluation | Sahan | Metrics, gain table, new-region test, charts |
+| 4 | Research + pitch | **unassigned** | Problem doc, laws slide, competitor slide, Q&A prep — real gap, see `PLAN.md` |
+
+See `PLAN.md` for the full concrete-task breakdown per person and `AGENTS.md` for branch mapping.
 
 ## Branching, in one line
 

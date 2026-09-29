@@ -18,19 +18,18 @@ Flower lets multiple banks train one shared model together — each bank's raw d
 **What Flower actually is:** `flwr` (the package in `requirements.txt`) is, per its own GitHub README, "a framework for building federated AI systems" — a federated learning framework. It is **not** a multi-agent orchestration framework and should never be compared to LangGraph, CrewAI, or AutoGen — that's a category error. Flower's marketing homepage (flower.ai) has newer branding around "Collaborative Superintelligence" and a "Flower Agent" product — that is a separate, sparsely-documented commercial product, unrelated to the open-source `flwr` package this project installs and uses. Do not reference or build pitch claims on that branding; stick to what `flwr` (the package) documents itself as.
 
 ## Team
-Five people work on this project, and their work is shared. **Who owns which task has not been decided yet.**
+Four people are assigned; **Research + pitch has no owner yet.** See `PLAN.md`'s
+roles table for the full concrete-task breakdown per person.
 
-| Person | Contact | Role |
+| Person | Role | Branch |
 |---|---|---|
-| Darsh | (fill in) | TBD. Interested in the model and Flower simulation |
-| Teammate 2 | (fill in) | TBD |
-| Teammate 3 | (fill in) | TBD |
-| Teammate 4 | (fill in) | TBD |
-| Teammate 5 | (fill in) | TBD |
+| Darsh | Model + backend lead | `role/model` |
+| Adam Franklyn | Flower ops + frontend | `role/model` (Flower) and `role/demo` (frontend) |
+| Musa | Data lead | `role/data` |
+| Sahan | Evaluation (backend) | `role/eval` |
+| — | Research + pitch | `role/pitch` — **unassigned, real gap** |
 
-Roles to be assigned (see `PLAN.md`): Data, Model + Flower, Evaluation, Research + pitch, Demo.
-
-Update this table once the split is agreed. Do not put personal emails in this file if the repo is public.
+Do not put personal emails or contact info in this file if the repo is public.
 
 ### Quickstart for a teammate on their own laptop
 1. `git clone https://github.com/Darshmello/ConnectMesh.git && cd ConnectMesh`
@@ -47,11 +46,11 @@ Update this table once the split is agreed. Do not put personal emails in this f
    end, on whichever single laptop the team picks then, not during
    individual work.
 
-### How to behave while roles are undecided
-- Do not assume who owns a task or who will read your output. Address whoever is prompting you.
+### How to behave now that roles are assigned
+- Address the person by role when relevant (e.g. "this affects Musa's partitions").
 - If a task touches another role's area (for example, changing the data partitions while working on the model), say so and keep the change small.
 - Do not rename files, columns or folders that others depend on (see Interfaces).
-- If asked to decide who does what, offer a suggestion and let the team confirm.
+- Research + pitch is unowned — if nobody's picked it up, flag it rather than silently leaving `docs/pitch/` unfinished.
 
 ## Fixed decisions
 - **Data:** IBM synthetic AML dataset, HI-Small. Regions ("banks" in the consortium framing) are fictional groupings assigned by bank ID.
