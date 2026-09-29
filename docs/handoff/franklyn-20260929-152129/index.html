@@ -1,0 +1,66 @@
+<html><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font:18px system-ui;background:#eef5f6;color:#153348;margin:5%}table{background:white;border-collapse:collapse}td,th{padding:16px}a{color:teal}</style>
+<style id="connectmesh-polish">
+body{max-width:1100px;margin:40px auto;padding:0 24px;
+font:17px/1.65 system-ui;background:#f2f6f8;color:#153348}
+h1{font-size:clamp(42px,7vw,68px);letter-spacing:-3px;margin-bottom:8px}
+h2{font-size:26px}table{width:100%;border-collapse:collapse;
+background:white;border-radius:14px;margin:25px 0}
+th,td{padding:16px;border:1px solid #dce5e9;text-align:right}
+th{background:#e5f0f1}a{color:#087d82;font-weight:700}
+.finding{background:#fff4dc;border-left:5px solid #b07b20;
+padding:18px 22px;border-radius:10px;margin:24px 0}
+@media(max-width:650px){body{padding:0 12px}th,td{padding:8px;font-size:13px}}
+</style>
+<h1>ConnectMesh</h1><h2>Five clients. Five completed Flower rounds.</h2>
+<div class="finding"><strong>What this experiment found</strong><br>
+Local models achieved higher average precision than the shared federated
+model in all five groups. This experiment demonstrates working collaboration
+and the need to evaluate its benefit before deployment.</div>
+<p>Measured average precision. Team-provided IBM-derived partitions; original provenance not independently verified. Fictional bank groupings; fixed test records.</p><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>setup</th>
+      <th>federated</th>
+      <th>local</th>
+      <th>pooled</th>
+    </tr>
+    <tr>
+      <th>region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>americas</th>
+      <td>0.001470</td>
+      <td>0.001474</td>
+      <td>0.001607</td>
+    </tr>
+    <tr>
+      <th>apac</th>
+      <td>0.032211</td>
+      <td>0.307757</td>
+      <td>0.027831</td>
+    </tr>
+    <tr>
+      <th>emea</th>
+      <td>0.023124</td>
+      <td>0.039565</td>
+      <td>0.019192</td>
+    </tr>
+    <tr>
+      <th>india</th>
+      <td>0.016857</td>
+      <td>0.057071</td>
+      <td>0.018071</td>
+    </tr>
+    <tr>
+      <th>small_sub</th>
+      <td>0.055104</td>
+      <td>0.170392</td>
+      <td>0.065155</td>
+    </tr>
+  </tbody>
+</table><p>Feature experiment: 37 fixed inputs with twenty optimizer iterations per round; convergence is not guaranteed. Improvements are not assumed.</p><p>Recall thresholds use training negatives; actual test FPR is in details.json. Separate processes do not provide secure isolation.</p><p><a href="results.csv">Results CSV</a> | <a href="details.json">Evaluation details</a></p>

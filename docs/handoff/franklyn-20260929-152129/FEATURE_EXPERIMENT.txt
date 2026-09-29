@@ -1,0 +1,1 @@
+Exploratory experiment: five rounds, 20 optimizer iterations per round. 37 fixed inputs from amount, payment type, currency and time. Same transformations across all arms. Test records unchanged. Training boundary exclusion matches baseline. No guaranteed convergence or federated improvement.

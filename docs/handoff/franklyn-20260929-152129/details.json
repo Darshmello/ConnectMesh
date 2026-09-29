@@ -1,0 +1,107 @@
+{
+  "americas/local": {
+    "pr_auc": 0.0014738446942156903,
+    "recall_at_fpr": 0.01639344262295082,
+    "n_train": 359883,
+    "n_pos": 511,
+    "test_fpr": 0.013366722314969394
+  },
+  "emea/local": {
+    "pr_auc": 0.03956534523768505,
+    "recall_at_fpr": 0.3023255813953488,
+    "n_train": 129101,
+    "n_pos": 84,
+    "test_fpr": 0.011013215859030838
+  },
+  "apac/local": {
+    "pr_auc": 0.30775674444651707,
+    "recall_at_fpr": 0.56,
+    "n_train": 116127,
+    "n_pos": 72,
+    "test_fpr": 0.016767293427634982
+  },
+  "india/local": {
+    "pr_auc": 0.057070815399464424,
+    "recall_at_fpr": 0.40425531914893614,
+    "n_train": 167209,
+    "n_pos": 69,
+    "test_fpr": 0.011493702408888463
+  },
+  "small_sub/local": {
+    "pr_auc": 0.1703918495776245,
+    "recall_at_fpr": 0.30158730158730157,
+    "n_train": 56547,
+    "n_pos": 51,
+    "test_fpr": 0.009663208753730283
+  },
+  "americas/pooled": {
+    "pr_auc": 0.001607218724169689,
+    "recall_at_fpr": 0.0,
+    "n_train": 828867,
+    "n_pos": 787,
+    "test_fpr": 0.0
+  },
+  "emea/pooled": {
+    "pr_auc": 0.019192119710048788,
+    "recall_at_fpr": 0.13953488372093023,
+    "n_train": 828867,
+    "n_pos": 787,
+    "test_fpr": 0.01718682136874108
+  },
+  "apac/pooled": {
+    "pr_auc": 0.02783117331216472,
+    "recall_at_fpr": 0.22,
+    "n_train": 828867,
+    "n_pos": 787,
+    "test_fpr": 0.021493876142832498
+  },
+  "india/pooled": {
+    "pr_auc": 0.018070583369443734,
+    "recall_at_fpr": 0.1702127659574468,
+    "n_train": 828867,
+    "n_pos": 787,
+    "test_fpr": 0.017503950960203057
+  },
+  "small_sub/pooled": {
+    "pr_auc": 0.06515517607508316,
+    "recall_at_fpr": 0.09523809523809523,
+    "n_train": 828867,
+    "n_pos": 787,
+    "test_fpr": 0.017407986357822935
+  },
+  "americas/federated": {
+    "pr_auc": 0.0014698083460280384,
+    "recall_at_fpr": 0.00819672131147541,
+    "n_train": 359883,
+    "n_pos": 511,
+    "test_fpr": 0.01715080690038954
+  },
+  "emea/federated": {
+    "pr_auc": 0.023124194388866606,
+    "recall_at_fpr": 0.13953488372093023,
+    "n_train": 129101,
+    "n_pos": 84,
+    "test_fpr": 0.011385493578209345
+  },
+  "apac/federated": {
+    "pr_auc": 0.032211244531737515,
+    "recall_at_fpr": 0.16,
+    "n_train": 116127,
+    "n_pos": 72,
+    "test_fpr": 0.011040193203381059
+  },
+  "india/federated": {
+    "pr_auc": 0.016856525675591358,
+    "recall_at_fpr": 0.14893617021276595,
+    "n_train": 167209,
+    "n_pos": 69,
+    "test_fpr": 0.009985153967721852
+  },
+  "small_sub/federated": {
+    "pr_auc": 0.055104282880721556,
+    "recall_at_fpr": 0.0,
+    "n_train": 56547,
+    "n_pos": 51,
+    "test_fpr": 0.010018473781440955
+  }
+}
