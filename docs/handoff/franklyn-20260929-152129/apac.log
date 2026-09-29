@@ -1,0 +1,49 @@
+[93mWARNING [0m:   DEPRECATED FEATURE: flwr.client.start_client() is deprecated.
+	Instead, use the `flower-supernode` CLI command to start a SuperNode as shown below:
+
+		$ flower-supernode --insecure --superlink='<IP>:<PORT>'
+
+	To view all available options, run:
+
+		$ flower-supernode --help
+
+	Using `start_client()` is deprecated.
+
+            This is a deprecated feature. It will be removed
+            entirely in future versions of Flower.
+        
+I0929 15:17:22.323502 2006439 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+I0929 15:17:22.343591 2006439 fork_posix.cc:71] Other threads are currently calling into gRPC, skipping fork() handlers
+[92mINFO [0m:      
+[92mINFO [0m:      Received: train message b1e2e15b-f78f-4c08-aab1-c658d482ca78
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: evaluate message f940db20-afc8-4e85-82ec-ab355f4fe671
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: train message 72a36a60-b74f-4c60-bf8a-913cd6eb810a
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: evaluate message a105c7e8-89a3-48ba-8ec6-7c59aa9a0967
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: train message a33e577a-f23a-47e3-8fe2-9c808b29365b
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: evaluate message fe8363ff-ea84-4ef0-bc88-0dede6398e99
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: train message b263685f-eb6b-4939-99de-1bdeaeec8c8d
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: evaluate message 4960bd93-d66d-4210-bdec-e58e4c571dc1
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: train message 40d9e750-637b-46ff-81da-42e04dae57ad
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: evaluate message 30d275f3-af71-4576-9f93-2f5464e53746
+[92mINFO [0m:      Sent reply
+[92mINFO [0m:      
+[92mINFO [0m:      Received: reconnect message 61aefa1d-b9ec-42f7-b4ca-aae0a88749dd
+[92mINFO [0m:      Disconnect and shut down
