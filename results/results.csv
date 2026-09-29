@@ -1,0 +1,16 @@
+region,setup,pr_auc,recall_at_fpr,n_train,n_pos
+americas,local,0.318,0.412,2300,10
+americas,federated,0.42,0.674,4014,40
+americas,pooled,0.457,0.563,4239,56
+emea,local,0.343,0.657,4217,11
+emea,federated,0.452,0.453,2357,53
+emea,pooled,0.485,0.49,3924,31
+apac,local,0.191,0.601,4102,42
+apac,federated,0.29,0.515,3843,59
+apac,pooled,0.345,0.606,5800,42
+india,local,0.333,0.441,4315,46
+india,federated,0.419,0.493,3691,34
+india,pooled,0.473,0.68,4125,27
+small_sub,local,0.307,0.578,4017,26
+small_sub,federated,0.39,0.667,3055,21
+small_sub,pooled,0.439,0.425,3508,51
