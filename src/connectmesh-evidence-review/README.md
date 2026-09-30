@@ -32,4 +32,13 @@ Training sources:
 https://github.com/Darshmello/ConnectMesh/blob/e74bc0a16dd028cb0f00284c4cf057c81bf002aa/results/README.md
 https://github.com/Darshmello/ConnectMesh/blob/e74bc0a16dd028cb0f00284c4cf057c81bf002aa/results/runs/2026-09-29_federated_5bank/run.log
 
-Status: buildable review app; live peer inference, Nebius provider execution and Hub publication still require runtime evidence. No automatic bank action.
+## Observed runtime status — September 29, 2026, 5:22 PM Pacific
+
+- Direct Nebius Kimi inference and two review requests succeeded. These used the same model with separate prompts, outside SuperGrid messaging.
+- SuperGrid v0.3.2 run `791632745106363984` completed but reported **Missing replies: 2. Review incomplete.** This is not successful end-to-end collaboration.
+- Earlier v0.2.0 worker logs show HTTP 401 from the model provider. The corrected key subsequently passed a direct test and the two-worker launcher restarted; replies after restart remain unverified.
+- The v0.3.2 recovery coordinator uses deterministic dispatch. Do not describe that dispatch as a demonstrated model-selected orchestration step.
+- Recovery versions installed on the operator Mac may differ from the code committed here. Read the actual run version and logs.
+- Flower Hub publication remains unverified. No automatic bank action.
+
+See the [repository README](../../README.md) for the measured comparison and current demo limitations.
